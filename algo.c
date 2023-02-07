@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egrevess <egrevess@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/07 11:50:12 by egrevess          #+#    #+#             */
+/*   Updated: 2023/02/07 11:50:13 by egrevess         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_sort_little(t_struct *stack_a)
@@ -95,7 +107,6 @@ static void	radix(t_struct *stack_a, t_struct *stack_b)
 void	ft_algo(t_struct *stack_a, t_struct *stack_b)
 {
 	ft_simplify(stack_a);
-	printf_pile(stack_a); //attention enlever
 	if (already_sorted(stack_a) == 0)
 		return ;
 	if (stack_a->size <= 3)
@@ -104,5 +115,4 @@ void	ft_algo(t_struct *stack_a, t_struct *stack_b)
 		ft_sort_big(stack_a, stack_b);
 	else
 		radix(stack_a, stack_b);
-	printf_pile(stack_a);//attention enlever 
 }

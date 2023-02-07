@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   atoi.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egrevess <egrevess@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/07 12:48:24 by egrevess          #+#    #+#             */
+/*   Updated: 2023/02/07 12:50:04 by egrevess         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int *check)
 {
 	long int	i;
-	size_t		nb;
+	long		nb;
 	long int	neg;
 
 	i = 0;
@@ -22,9 +34,7 @@ int	ft_atoi(const char *str)
 		nb = str[i] + (nb * 10) - 48;
 		i++;
 	}
-	if (nb >= 9223372036854775807 && neg == 1)
-		nb = -1;
-	else if (nb > 9223372036854775807 && neg == -1)
-		nb = 0;
+	if (nb * neg > INT_MAX || nb * neg < INT_MIN || str[i] || i == 0)
+		(*check) = 1;
 	return (nb * neg);
 }
